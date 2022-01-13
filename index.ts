@@ -17,7 +17,7 @@ const filteredRestaurants = restaurants.filter((restaurant) => {
     return false;
   }
 
-  if (restaurant.distance > maxDistance) {
+  if (Number(restaurant.distance) > maxDistance) {
     return false;
   }
 
@@ -27,7 +27,7 @@ const filteredRestaurants = restaurants.filter((restaurant) => {
 if (filteredRestaurants.length === 0) {
   result = 'There are no restaurants available right now.';
 } else {
-  result = `We found ${filteredRestaurants.length} restaurants, the first is ${filteredRestaurants[0].restaurantName}.`;
+  result = `We found ${filteredRestaurants.length} restaurants, the first is ${filteredRestaurants[0].name}.`;
 }
 
 console.log(result);
