@@ -1,7 +1,7 @@
 import restaurants from './restaurants';
 
 const dollarSigns = '$$';
-const deliveryTimeMax = '90';
+const deliveryTimeMax = 90;
 const maxDistance = 10;
 let result;
 
@@ -13,6 +13,7 @@ const filteredRestaurants = restaurants.filter((restaurant) => {
   }
 
   if (Number(restaurant.deliveryTimeMinutes) > Number(deliveryTimeMax)) {
+    // Note: CA changes their initial variable type on line 4 to fix this comparison instead. I elected to employ that change *and* the constructor to cast types here.
     return false;
   }
 
