@@ -5,6 +5,7 @@ var dollarSigns = '$$';
 var deliveryTimeMax = 90;
 var maxDistance = 10;
 var result;
+var hour = new Date().getHours();
 var priceBracket = dollarSigns.length;
 var filteredRestaurants = restaurants_1["default"].filter(function (restaurant) {
     if (Number(restaurant.priceBracket) > priceBracket) {
