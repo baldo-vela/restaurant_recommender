@@ -12,7 +12,7 @@ const filteredRestaurants = restaurants.filter((restaurant) => {
     return false;
   }
 
-  if (restaurant.deliveryTimeMinutes > deliveryTimeMax) {
+  if (Number(restaurant.deliveryTimeMinutes) > Number(deliveryTimeMax)) {
     return false;
   }
 
