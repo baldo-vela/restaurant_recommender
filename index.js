@@ -18,6 +18,9 @@ var filteredRestaurants = restaurants_1["default"].filter(function (restaurant) 
     if (Number(restaurant.distance) > maxDistance) {
         return false;
     }
+    if (hour < Number(restaurant.openHour) || hour > Number(restaurant.closeHour)) {
+        return false;
+    }
     return restaurant;
 });
 if (filteredRestaurants.length === 0) {
