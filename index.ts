@@ -8,7 +8,7 @@ let result;
 const priceBracket: number = dollarSigns.length;
 
 const filteredRestaurants = restaurants.filter((restaurant) => {
-  if (restaurant.priceBracket > priceBracket) {
+  if (Number(restaurant.priceBracket) > priceBracket) {
     return false;
   }
 
