@@ -1,38 +1,12 @@
-import restaurants from './restaurants';
+import { restaurants, Restaurant } from "./restaurants";
+import { orders, Order, PriceBracket } from "./orders";
 
-const dollarSigns = '$$';
-const deliveryTimeMax = 90;
-const maxDistance = 10;
-let result: string;
-let hour: number = new Date().getHours();
+/// Add your getMaxPrice() function below:
 
-const priceBracket: number = dollarSigns.length;
+/// Add your getOrders() function below:
 
-const filteredRestaurants = restaurants.filter((restaurant) => {
-  if (Number(restaurant.priceBracket) > priceBracket) {
-    return false;
-  }
+/// Add your printOrders() function below:
 
-  if (Number(restaurant.deliveryTimeMinutes) > Number(deliveryTimeMax)) {
-    // Note: CA changes their initial variable type on line 4 to fix this comparison instead. I elected to employ that change *and* the constructor to cast types here.
-    return false;
-  }
-
-  if (Number(restaurant.distance) > maxDistance) {
-    return false;
-  }
-
-  if (hour < Number(restaurant.openHour) || hour > Number(restaurant.closeHour)) {
-    return false;
-  }
-
-  return restaurant;
-});
-
-if (filteredRestaurants.length === 0) {
-  result = 'There are no restaurants available right now.';
-} else {
-  result = `We found ${filteredRestaurants.length} restaurants, the first is ${filteredRestaurants[0].name}.`;
-}
-
-console.log(result);
+/// Main
+// const elligibleOrders = getOrders(PriceBracket.Low, orders);
+// printOrders(restaurants, elligibleOrders);
