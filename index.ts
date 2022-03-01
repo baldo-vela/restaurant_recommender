@@ -16,7 +16,7 @@ function getMaxPrice(filter: PriceBracket){
 }
 /// Add your getOrders() function below:
 function getOrders(price: PriceBracket, orders: Order[][]){
-
+  let filteredOrders: Order[][];
 }
 
 /// Add your printOrders() function below:
