@@ -2,7 +2,7 @@ import { restaurants, Restaurant } from "./restaurants";
 import { orders, Order, PriceBracket } from "./orders";
 
 /// Add your getMaxPrice() function below:
-function getMaxPrice(){
+function getMaxPrice(filter: PriceBracket){
 
 }
 /// Add your getOrders() function below:
