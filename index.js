@@ -1,32 +1,40 @@
 "use strict";
-exports.__esModule = true;
-var restaurants_1 = require("./restaurants");
-var dollarSigns = '$$';
-var deliveryTimeMax = 90;
-var maxDistance = 10;
-var result;
-var hour = new Date().getHours();
-var priceBracket = dollarSigns.length;
-var filteredRestaurants = restaurants_1["default"].filter(function (restaurant) {
-    if (Number(restaurant.priceBracket) > priceBracket) {
-        return false;
+Object.defineProperty(exports, "__esModule", { value: true });
+const restaurants_1 = require("./restaurants");
+const orders_1 = require("./orders");
+/// Add your getMaxPrice() function below:
+function getMaxPrice(filter) {
+    switch (filter) {
+        case orders_1.PriceBracket.Low:
+            return 10.0;
+        case orders_1.PriceBracket.Medium:
+            return 20.0;
+        case orders_1.PriceBracket.High:
+            return 30.0;
+        default:
+            return 0.0;
     }
-    if (Number(restaurant.deliveryTimeMinutes) > Number(deliveryTimeMax)) {
-        // Note: CA changes their initial variable type on line 4 to fix this comparison instead. I elected to employ that change *and* the constructor to cast types here.
-        return false;
-    }
-    if (Number(restaurant.distance) > maxDistance) {
-        return false;
-    }
-    if (hour < Number(restaurant.openHour) || hour > Number(restaurant.closeHour)) {
-        return false;
-    }
-    return restaurant;
-});
-if (filteredRestaurants.length === 0) {
-    result = 'There are no restaurants available right now.';
 }
-else {
-    result = "We found ".concat(filteredRestaurants.length, " restaurants, the first is ").concat(filteredRestaurants[0].name, ".");
+/// Add your getOrders() function below:
+function getOrders(price, orders) {
+    let filteredOrders = [];
+    orders.forEach((restaurant) => {
+        filteredOrders.push(restaurant.filter((order) => order.price <= getMaxPrice(price)));
+    });
+    return filteredOrders;
 }
-console.log(result);
+/// Add your printOrders() function below:
+function printOrders(restaurants, orders) {
+    orders.forEach((order, index) => {
+        if (order.length > 0) {
+            console.log(`${restaurants[index].name}`);
+            order.forEach((item, index) => {
+                console.log(`- #${index + 1} ${item.name}: ${item.price}`);
+            });
+        }
+        ;
+    });
+}
+/// Main
+const elligibleOrders = getOrders(orders_1.PriceBracket.Low, orders_1.orders);
+printOrders(restaurants_1.restaurants, elligibleOrders);

@@ -1,44 +1,46 @@
 "use strict";
-exports.__esModule = true;
-exports["default"] = [
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.restaurants = void 0;
+const orders_1 = require("./orders");
+exports.restaurants = [
     {
-        name: 'Silver Rice Sushi 🍣',
-        priceBracket: '2',
+        name: "Silver Rice Sushi 🍣",
+        priceBracket: orders_1.PriceBracket.Medium,
         deliveryTimeMinutes: 40,
-        openHour: '12',
-        closeHour: '23',
-        distance: '5'
+        openHour: "12",
+        closeHour: "23",
+        distance: "5",
     },
     {
-        name: 'Nikko\'s Rotisserie Chicken 🍗',
-        priceBracket: '1',
+        name: "Nikko's Rotisserie Chicken 🍗",
+        priceBracket: orders_1.PriceBracket.Low,
         deliveryTimeMinutes: 20,
-        openHour: '12',
-        closeHour: '21',
-        distance: '8'
+        openHour: "12",
+        closeHour: "21",
+        distance: "8",
     },
     {
-        name: 'Aita Trattoria 🍝',
-        priceBracket: '3',
+        name: "Aita Trattoria 🍝",
+        priceBracket: orders_1.PriceBracket.High,
         deliveryTimeMinutes: 60,
-        openHour: '18',
-        closeHour: '22',
-        distance: '1'
+        openHour: "18",
+        closeHour: "22",
+        distance: "1",
     },
     {
-        name: 'Lula Bagel 🥯',
-        priceBracket: '1',
+        name: "Lula Bagel 🥯",
+        priceBracket: orders_1.PriceBracket.Low,
         deliveryTimeMinutes: 20,
-        openHour: '0',
-        closeHour: '12',
-        distance: '2'
+        openHour: "0",
+        closeHour: "12",
+        distance: "2",
     },
     {
-        name: 'Golden Chopstick 🥢',
-        priceBracket: '1',
+        name: "Golden Chopstick 🥢",
+        priceBracket: orders_1.PriceBracket.Medium,
         deliveryTimeMinutes: 20,
-        openHour: '15',
-        closeHour: '23',
-        distance: '12'
+        openHour: "15",
+        closeHour: "23",
+        distance: "12",
     },
 ];

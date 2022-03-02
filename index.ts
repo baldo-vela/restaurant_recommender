@@ -28,6 +28,9 @@ function printOrders(restaurants: Restaurant[], orders: Order[][]){
   orders.forEach((order, index) => {
     if(order.length > 0){
       console.log(`${restaurants[index].name}`)
+      order.forEach((item, index) =>{
+        console.log(`- #${index+1} ${item.name}: ${item.price}`)
+      });
     };
   });
 }
